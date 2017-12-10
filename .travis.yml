@@ -1,0 +1,7 @@
+sudo: false
+language: python
+python:
+  - "3.6"
+script:
+  - mypy TrelloRunner
+  - flake8 TrelloRunner
