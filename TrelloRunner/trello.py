@@ -1,8 +1,7 @@
 """"""
 
-from typing import Optional, Dict
-from TrelloRunner.common import *
-from TrelloRunner import config
+from typing import Dict
+from TrelloRunner.common import AuthData
 import requests
 
 
@@ -25,7 +24,8 @@ class Trello:
         resp = self._authenticated_api_call("GET", f"/members/me/tokens")
         return resp.ok
 
-    def _authenticated_api_call(self, method: str, endpoint: str, data: Dict = {}, params: Dict = {}) -> requests.Response:
+    def _authenticated_api_call(self, method: str, endpoint: str,
+                                data: Dict = {}, params: Dict = {}) -> requests.Response:
         """Helper function to wrap the _make_api_call method in authentication data
 
         :param method: GET, POST, PUT, DELETE
@@ -55,4 +55,3 @@ class Trello:
         resp = requests.request(method=method, url=Trello.base_url+endpoint, **kwargs)
 
         return resp
-

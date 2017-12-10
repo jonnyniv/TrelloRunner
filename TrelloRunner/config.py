@@ -1,4 +1,4 @@
-from .common import *
+from TrelloRunner.common import AuthData
 import yaml
 
 
